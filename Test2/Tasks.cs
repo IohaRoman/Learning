@@ -5,34 +5,36 @@ namespace Learning
 {
     internal class Tasks
     {
-            const int DaysPerYear = 365;
+        const int DaysPerYear = 365;
+        const int TimeToResolveIssue = 20;
 
-            public int SummTwoNumbers(int a, int b)
+        public int SummTwoNumbers(int a, int b)
             {
                 return a + b;
             }
-            public int ConvertToSeconds(int minutes)
+
+        public int ConvertToSeconds(int minutes)
             {
                 return Convert.ToInt32(TimeSpan.FromMinutes(minutes).TotalSeconds);
             }
 
-            public int ConvertAgeToDates(int age)
+        public int ConvertAgeToDates(int age)
             {
                 var AgeInDays = age * DaysPerYear;
                 return AgeInDays;
             }
 
-            public string FindSmallestBiggestNumbers(int[] mass)
+        public string FindSmallestBiggestNumbers(int[] mass)
             {
                 return $"[{mass.Min()},{mass.Max()}]";
             }
 
-            public string ConvertNumberToCorrespondingMonthName(int monthNumber)
+        public string ConvertNumberToCorrespondingMonthName(int monthNumber)
             {
                 return DateTimeFormatInfo.CurrentInfo.GetAbbreviatedMonthName(monthNumber);
             }
 
-            public string ReverseOfCase(string typedString)
+        public string ReverseOfCase(string typedString)
             {
                 var CharArray = typedString.ToCharArray();
                 var RevertedArray = new StringBuilder();
@@ -53,7 +55,7 @@ namespace Learning
                 return RevertedArray.ToString();
             }
 
-            public string ReturntheIndexOfAllCapitalLetters(string typedString)
+        public string ReturntheIndexOfAllCapitalLetters(string typedString)
             {
                 var CharArray = typedString.ToCharArray();
                 var builder = new StringBuilder();
@@ -74,7 +76,7 @@ namespace Learning
                 return $"[{builder}]";
             }
 
-            public string TrackRobot(string[] cordinates)
+        public string TrackRobot(string[] cordinates)
             {
                 var point = new Point();
                 foreach (var cordinate in cordinates)
@@ -86,7 +88,7 @@ namespace Learning
                 return point.ToString();
             }
 
-            private void SetValue(string setVector, int value, Point point)
+        private void SetValue(string setVector, int value, Point point)
             {
                 switch (setVector)
                 {
@@ -109,7 +111,7 @@ namespace Learning
 
             }
 
-            class Point
+        class Point
             {
                 public int X { get; set; }
                 public int Y { get; set; }
@@ -120,5 +122,38 @@ namespace Learning
                 }
 
             }
+
+        public int NewDrivingLicense(string name, int agents, string queue)
+        {
+            var queueNames = new string(queue + ' ' + name);
+            var splitedQueueNames = queueNames.Split(' ');
+
+            Array.Sort(splitedQueueNames);
+
+            return (Array.IndexOf(splitedQueueNames, name) / agents * TimeToResolveIssue + TimeToResolveIssue);
         }
+
+        public string AWeekLater(string dateTime)
+        {
+            DateTime increasedDate = Convert.ToDateTime(dateTime);
+
+            return increasedDate.AddDays(7).ToShortDateString();
+        }
+
+        public string CupSwapping(string[] movements)
+        {
+            var currentPosition = ("B");
+
+            foreach (var movement in movements)
+            {
+                if (movement.Contains(currentPosition))
+                {
+                    currentPosition = movement.Trim(Convert.ToChar(currentPosition));
+                }
+            }
+
+            return currentPosition;
+        }
+
     }
+}
