@@ -1,5 +1,6 @@
 ﻿using System.Text;
 using System.Globalization;
+using System.Text.RegularExpressions;
 
 namespace Learning
 {
@@ -153,6 +154,19 @@ namespace Learning
             }
 
             return currentPosition;
+        }
+
+        public bool PasswordValidation(string password)
+        {
+            Regex regex = new Regex(@"^((?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[\!\@\#\$\%\^\&\*\(\)\+\=\-\{\}\[\]\:\;\'\?\<\>\,\.]).{6,24}$)");
+            var repitLetters = !Regex.IsMatch(password, @"^!((.)\1{2,})");
+
+            return regex.IsMatch(password) && repitLetters;
+        }
+
+        public bool ValidName(string name)
+        {
+            return Regex.IsMatch(name, @"^[A-Z]([a-z]+|\.)\s[A-Z]([a-z]+|\.)\s[A-Z][a-z]+$");
         }
 
     }

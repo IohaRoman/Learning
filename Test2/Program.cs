@@ -29,5 +29,9 @@ class Program
         Console.WriteLine(FourthTask.AWeekLater("05/29/2005"));
         //https://edabit.com/challenge/X3btpQQEBeezX4jhK
         Console.WriteLine(FourthTask.CupSwapping(new string[] {"BA", "AC", "CA", "BC"}));
+        //https://edabit.com/challenge/etT7orqDDXJF2zGYM
+        Console.WriteLine(FourthTask.PasswordValidation("Fhg933@"));
+        //https://edabit.com/challenge/pcHzxfGheeNE4JDpR
+        Console.WriteLine(FourthTask.ValidName("Herbert G. Wells"));
     }
 }
