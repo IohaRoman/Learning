@@ -159,7 +159,7 @@ namespace Learning
         public bool PasswordValidation(string password)
         {
             Regex regex = new Regex(@"^((?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[\!\@\#\$\%\^\&\*\(\)\+\=\-\{\}\[\]\:\;\'\?\<\>\,\.]).{6,24}$)");
-            var repitLetters = !Regex.IsMatch(password, @"^!((.)\1{2,})");
+            var repitLetters = !Regex.IsMatch(password, @"^((.)\1{2,})");
 
             return regex.IsMatch(password) && repitLetters;
         }
