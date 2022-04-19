@@ -183,7 +183,7 @@ namespace Learning
 
             for (int i = 0; i < decode.Length; i++)
             {
-                result[i] = Convert.ToInt32(decode[i].ToString().Sum(x => Char.GetNumericValue(x)));
+                result[i] = Convert.ToInt32(decode[i].ToString().Sum(x => char.GetNumericValue(x)));
             }
 
             return $"[{string.Join(",", result)}]";
