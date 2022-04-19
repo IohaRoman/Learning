@@ -169,5 +169,24 @@ namespace Learning
             return Regex.IsMatch(name, @"^[A-Z]([a-z]+|\.)\s[A-Z]([a-z]+|\.)\s[A-Z][a-z]+$");
         }
 
+        public string XORCipher(string firstXorString, string secondXorString)
+        {
+            var numbersAndWords = firstXorString.Zip(secondXorString,(first, second) => Convert.ToString(Convert.ToInt32(first.ToString(), 16) ^ Convert.ToInt32(second.ToString(), 16), 16));
+
+            return $"[{string.Join("", numbersAndWords)}]";
+        }
+
+        public string CrackCode(string xorValues)
+        {
+            var result = new int[xorValues.Length];
+            var decode = Encoding.ASCII.GetBytes(xorValues);
+
+            for (int i = 0; i < decode.Length; i++)
+            {
+                result[i] = Convert.ToInt32(decode[i].ToString().Sum(x => Char.GetNumericValue(x)));
+            }
+
+            return $"[{string.Join(",", result)}]";
+        }
     }
 }

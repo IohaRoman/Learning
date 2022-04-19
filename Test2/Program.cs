@@ -7,6 +7,7 @@ class Program
         Tasks SecondTask = new Tasks();
         Tasks ThirdTask = new Tasks();
         Tasks FourthTask = new Tasks();
+        Tasks FifthTask = new Tasks();
         //https://edabit.com/challenge/xfRucdwGksiyjZq4K
         Console.WriteLine(FirstTask.SummTwoNumbers(2, 7));
         //https://edabit.com/challenge/bizjGL4wyd8PwR4Ke
@@ -33,5 +34,9 @@ class Program
         Console.WriteLine(FourthTask.PasswordValidation("Fhg933@"));
         //https://edabit.com/challenge/pcHzxfGheeNE4JDpR
         Console.WriteLine(FourthTask.ValidName("Herbert G. Wells"));
+        //https://edabit.com/challenge/LYCYnsQpqt2xuB6od
+        Console.WriteLine(FifthTask.XORCipher("c611d9bdd9de38b9eb", "23a0745505d4d25494"));
+        //https://edabit.com/challenge/6gSYbKbevEaBHeE9F
+        Console.WriteLine(FifthTask.CrackCode("something challenging"));
     }
 }
