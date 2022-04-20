@@ -195,8 +195,8 @@ namespace Learning
             for (var i = 0; i <= secondAnagam.Length - firstAnagram.Length; i++)
             {
                 var temp = secondAnagam.Substring(i, firstAnagram.Length);
-                var compare1 = temp.OrderBy(x => x).ToArray();
-                var compare2 = firstAnagram.OrderBy(x => x).ToArray();
+                var compare1 = temp.OrderBy(x => x);
+                var compare2 = firstAnagram.OrderBy(x => x);
 
                 if (compare1.SequenceEqual(compare2))
                 {
