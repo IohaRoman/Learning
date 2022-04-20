@@ -8,6 +8,7 @@ class Program
         Tasks ThirdTask = new Tasks();
         Tasks FourthTask = new Tasks();
         Tasks FifthTask = new Tasks();
+        Tasks SixthTask = new Tasks();
         //https://edabit.com/challenge/xfRucdwGksiyjZq4K
         Console.WriteLine(FirstTask.SummTwoNumbers(2, 7));
         //https://edabit.com/challenge/bizjGL4wyd8PwR4Ke
@@ -38,5 +39,7 @@ class Program
         Console.WriteLine(FifthTask.XORCipher("c611d9bdd9de38b9eb", "23a0745505d4d25494"));
         //https://edabit.com/challenge/6gSYbKbevEaBHeE9F
         Console.WriteLine(FifthTask.CrackCode("something challenging"));
+        //https://edabit.com/challenge/ybAba6PYxnGNW7w5r
+        Console.WriteLine(SixthTask.FindAnagramInAnotherString("bag", "grab"));
     }
 }

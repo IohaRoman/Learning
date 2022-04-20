@@ -188,5 +188,23 @@ namespace Learning
 
             return $"[{string.Join(",", result)}]";
         }
+
+        public bool FindAnagramInAnotherString(string firstAnagram, string secondAnagam)
+        {
+
+            for (var i = 0; i <= secondAnagam.Length - firstAnagram.Length; i++)
+            {
+                var temp = secondAnagam.Substring(i, firstAnagram.Length);
+                var compare1 = temp.OrderBy(x => x).ToArray();
+                var compare2 = firstAnagram.OrderBy(x => x).ToArray();
+
+                if (compare1.SequenceEqual(compare2))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
     }
 }
