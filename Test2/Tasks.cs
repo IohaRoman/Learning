@@ -1,6 +1,7 @@
 ﻿using System.Text;
 using System.Globalization;
 using System.Text.RegularExpressions;
+using System.Linq;
 
 namespace Learning
 {
@@ -77,6 +78,7 @@ namespace Learning
                 return $"[{builder}]";
             }
 
+        #region Task regarding TrackRobot - public string TrackRobot(string[])
         public string TrackRobot(string[] cordinates)
             {
                 var point = new Point();
@@ -123,7 +125,7 @@ namespace Learning
                 }
 
             }
-
+        #endregion
         public int NewDrivingLicense(string name, int agents, string queue)
         {
             var queueNames = new string(queue + ' ' + name);
@@ -206,5 +208,49 @@ namespace Learning
 
             return false;
         }
+
+        #region Task regarding Palindromes - public string PalindromeSequence(Long)
+        public string PalindromeSequence(long enteredValue)
+        {
+            if(IsPalindrome(enteredValue) == true)
+            {
+                for (int value = 1; value <= enteredValue; value++)
+                {
+                    long result = value;
+                    for (var counter = 1; ; counter++)
+                    {
+                        if (result == Convert.ToInt64(ReversePalindrome(result))) break;
+
+                        result += Convert.ToInt64(ReversePalindrome(result));
+
+                        if (result == enteredValue) return $"({value},{counter})";
+
+                        if (result > enteredValue) break;
+                    }
+                }
+            }
+            return $"({enteredValue},{0})";
+        }
+
+        public string ReversePalindrome(long supposedPalindrome)
+        {
+            var revers = supposedPalindrome.ToString().ToCharArray();
+            return new string(revers.Reverse().ToArray());
+        }
+
+        public bool IsPalindrome(long intendedPalindrome)
+        {
+            long remineder, sum = 0;
+            var temp = intendedPalindrome;
+            while (intendedPalindrome > 0)
+            {
+                remineder = intendedPalindrome % 10;
+                sum = (sum * 10) + remineder;
+                intendedPalindrome = intendedPalindrome / 10;
+            }
+            if (temp == sum) return true;
+            else return false;
+        }
+        #endregion
     }
 }

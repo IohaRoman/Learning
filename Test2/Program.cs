@@ -41,5 +41,7 @@ class Program
         Console.WriteLine(FifthTask.CrackCode("something challenging"));
         //https://edabit.com/challenge/ybAba6PYxnGNW7w5r
         Console.WriteLine(SixthTask.FindAnagramInAnotherString("bag", "grab"));
+        //https://edabit.com/challenge/ujjTrkH9JxPvMQAMR
+        Console.WriteLine(SixthTask.PalindromeSequence(8836886388));
     }
 }
