@@ -10,33 +10,33 @@ namespace Learning
         const int DaysPerYear = 365;
         const int TimeToResolveIssue = 20;
 
-        public int SummTwoNumbers(int a, int b)
+        public static int SummTwoNumbers(int a, int b)
             {
                 return a + b;
             }
 
-        public int ConvertToSeconds(int minutes)
+        public static int ConvertToSeconds(int minutes)
             {
                 return Convert.ToInt32(TimeSpan.FromMinutes(minutes).TotalSeconds);
             }
 
-        public int ConvertAgeToDates(int age)
+        public static int ConvertAgeToDates(int age)
             {
                 var AgeInDays = age * DaysPerYear;
                 return AgeInDays;
             }
 
-        public string FindSmallestBiggestNumbers(int[] mass)
+        public static string FindSmallestBiggestNumbers(int[] mass)
             {
                 return $"[{mass.Min()},{mass.Max()}]";
             }
 
-        public string ConvertNumberToCorrespondingMonthName(int monthNumber)
+        public static string ConvertNumberToCorrespondingMonthName(int monthNumber)
             {
                 return DateTimeFormatInfo.CurrentInfo.GetAbbreviatedMonthName(monthNumber);
             }
 
-        public string ReverseOfCase(string typedString)
+        public static string ReverseOfCase(string typedString)
             {
                 var CharArray = typedString.ToCharArray();
                 var RevertedArray = new StringBuilder();
@@ -57,7 +57,7 @@ namespace Learning
                 return RevertedArray.ToString();
             }
 
-        public string ReturntheIndexOfAllCapitalLetters(string typedString)
+        public static string ReturntheIndexOfAllCapitalLetters(string typedString)
             {
                 var CharArray = typedString.ToCharArray();
                 var builder = new StringBuilder();
@@ -79,7 +79,7 @@ namespace Learning
             }
 
         #region Task regarding TrackRobot - public string TrackRobot(string[])
-        public string TrackRobot(string[] cordinates)
+        public static string TrackRobot(string[] cordinates)
             {
                 var point = new Point();
                 foreach (var cordinate in cordinates)
@@ -91,7 +91,7 @@ namespace Learning
                 return point.ToString();
             }
 
-        private void SetValue(string setVector, int value, Point point)
+        private static void SetValue(string setVector, int value, Point point)
             {
                 switch (setVector)
                 {
@@ -126,7 +126,7 @@ namespace Learning
 
             }
         #endregion
-        public int NewDrivingLicense(string name, int agents, string queue)
+        public static int NewDrivingLicense(string name, int agents, string queue)
         {
             var queueNames = new string(queue + ' ' + name);
             var splitedQueueNames = queueNames.Split(' ');
@@ -136,14 +136,14 @@ namespace Learning
             return (Array.IndexOf(splitedQueueNames, name) / agents * TimeToResolveIssue + TimeToResolveIssue);
         }
 
-        public string AWeekLater(string dateTime)
+        public static string AWeekLater(string dateTime)
         {
             DateTime increasedDate = Convert.ToDateTime(dateTime);
 
             return increasedDate.AddDays(7).ToShortDateString();
         }
 
-        public string CupSwapping(string[] movements)
+        public static string CupSwapping(string[] movements)
         {
             var currentPosition = ("B");
 
@@ -158,7 +158,7 @@ namespace Learning
             return currentPosition;
         }
 
-        public bool PasswordValidation(string password)
+        public static bool PasswordValidation(string password)
         {
             Regex regex = new Regex(@"^((?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[\!\@\#\$\%\^\&\*\(\)\+\=\-\{\}\[\]\:\;\'\?\<\>\,\.]).{6,24}$)");
             var repitLetters = !Regex.IsMatch(password, @"^((.)\1{2,})");
@@ -166,19 +166,19 @@ namespace Learning
             return regex.IsMatch(password) && repitLetters;
         }
 
-        public bool ValidName(string name)
+        public static bool ValidName(string name)
         {
             return Regex.IsMatch(name, @"^[A-Z]([a-z]+|\.)\s[A-Z]([a-z]+|\.)\s[A-Z][a-z]+$");
         }
 
-        public string XORCipher(string firstXorString, string secondXorString)
+        public static string XORCipher(string firstXorString, string secondXorString)
         {
             var numbersAndWords = firstXorString.Zip(secondXorString,(first, second) => Convert.ToString(Convert.ToInt32(first.ToString(), 16) ^ Convert.ToInt32(second.ToString(), 16), 16));
 
             return $"[{string.Join("", numbersAndWords)}]";
         }
 
-        public string CrackCode(string xorValues)
+        public static string CrackCode(string xorValues)
         {
             var result = new int[xorValues.Length];
             var decode = Encoding.ASCII.GetBytes(xorValues);
@@ -191,7 +191,7 @@ namespace Learning
             return $"[{string.Join(",", result)}]";
         }
 
-        public bool FindAnagramInAnotherString(string firstAnagram, string secondAnagam)
+        public static bool FindAnagramInAnotherString(string firstAnagram, string secondAnagam)
         {
 
             for (var i = 0; i <= secondAnagam.Length - firstAnagram.Length; i++)
@@ -210,7 +210,7 @@ namespace Learning
         }
 
         #region Task regarding Palindromes - public string PalindromeSequence(Long)
-        public string PalindromeSequence(long enteredValue)
+        public static string PalindromeSequence(long enteredValue)
         {
             if(IsPalindrome(enteredValue) == true)
             {
@@ -232,13 +232,13 @@ namespace Learning
             return $"({enteredValue},{0})";
         }
 
-        public string ReversePalindrome(long supposedPalindrome)
+        public static string ReversePalindrome(long supposedPalindrome)
         {
             var revers = supposedPalindrome.ToString().ToCharArray();
             return new string(revers.Reverse().ToArray());
         }
 
-        public bool IsPalindrome(long intendedPalindrome)
+        public static bool IsPalindrome(long intendedPalindrome)
         {
             long remineder, sum = 0;
             var temp = intendedPalindrome;
