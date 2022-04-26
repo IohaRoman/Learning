@@ -9,6 +9,8 @@ class Program
         Tasks FourthTask = new Tasks();
         Tasks FifthTask = new Tasks();
         Tasks SixthTask = new Tasks();
+        Tasks SeventhTask = new Tasks();
+        Smoothie MakeSmoothie = new Smoothie(new string[] { "Raspberries", "Strawberries", "Blueberries" });
         //https://edabit.com/challenge/xfRucdwGksiyjZq4K
         Console.WriteLine(FirstTask.SummTwoNumbers(2, 7));
         //https://edabit.com/challenge/bizjGL4wyd8PwR4Ke
@@ -24,13 +26,13 @@ class Program
         //https://edabit.com/challenge/6qFnpAhd3kdmYcNG2
         Console.WriteLine(SecondTask.ReturntheIndexOfAllCapitalLetters("STRiKE"));
         //https://edabit.com/challenge/g88PKZrCY6sWPBva7
-        Console.WriteLine(ThirdTask.TrackRobot(new string[] {"right 10", "up 50", "left 30", "down 10", "up 5002"}));
+        Console.WriteLine(ThirdTask.TrackRobot(new string[] { "right 10", "up 50", "left 30", "down 10", "up 5002" }));
         //https://edabit.com/challenge/HfpK34Ty4SZhN2d9e
         Console.WriteLine(FourthTask.NewDrivingLicense("Zebediah", 1, "Bob Jim Becky Pat"));
         //https://edabit.com/challenge/y4esBva2cYph5QKg5
         Console.WriteLine(FourthTask.AWeekLater("05/29/2005"));
         //https://edabit.com/challenge/X3btpQQEBeezX4jhK
-        Console.WriteLine(FourthTask.CupSwapping(new string[] {"BA", "AC", "CA", "BC"}));
+        Console.WriteLine(FourthTask.CupSwapping(new string[] { "BA", "AC", "CA", "BC" }));
         //https://edabit.com/challenge/etT7orqDDXJF2zGYM
         Console.WriteLine(FourthTask.PasswordValidation("Fhg933@"));
         //https://edabit.com/challenge/pcHzxfGheeNE4JDpR
@@ -43,5 +45,12 @@ class Program
         Console.WriteLine(SixthTask.FindAnagramInAnotherString("bag", "grab"));
         //https://edabit.com/challenge/ujjTrkH9JxPvMQAMR
         Console.WriteLine(SixthTask.PalindromeSequence(8836886388));
+        //https://edabit.com/challenge/7CiFmw5SiKf9ZLp2N
+        Console.WriteLine(SeventhTask.DistanceToNearestVowel("abcdabcd"));
+        //https://edabit.com/challenge/rYKtzcuCQ9FQ9t9pH
+        Console.WriteLine(MakeSmoothie.Ingredients());
+        Console.WriteLine(MakeSmoothie.GetCost());
+        Console.WriteLine(MakeSmoothie.GetPrice());
+        Console.WriteLine(MakeSmoothie.GetName());
     }
 }

@@ -1,7 +1,6 @@
 ﻿using System.Text;
 using System.Globalization;
 using System.Text.RegularExpressions;
-using System.Linq;
 
 namespace Learning
 {
@@ -78,7 +77,7 @@ namespace Learning
                 return $"[{builder}]";
             }
 
-        #region Task regarding TrackRobot - public string TrackRobot(string[])
+        #region Task regarding: TrackRobot - public string TrackRobot(string[])
         public string TrackRobot(string[] cordinates)
             {
                 var point = new Point();
@@ -209,7 +208,7 @@ namespace Learning
             return false;
         }
 
-        #region Task regarding Palindromes - public string PalindromeSequence(Long)
+        #region Task regarding: Palindromes - public string PalindromeSequence(Long)
         public string PalindromeSequence(long enteredValue)
         {
             if(IsPalindrome(enteredValue) == true)
@@ -253,6 +252,53 @@ namespace Learning
         }
         #endregion
 
+        #region Task regarding: Distance to Nearest Vowel - public string DistanceToNearestVowel(string)
+        public string DistanceToNearestVowel(string lettersString)
+        {
+            var vowel = new[]{'a', 'e', 'i', 'o', 'u'};
+            var numsVowel = new int[lettersString.Length];
+            var numsVowelReverse = new int[lettersString.Length];
+            var trimedString = lettersString.Trim().ToCharArray();
+            var tempVowel = 1;
+            var tempVowelReverse = 1;
+
+            for (var i = 0; i < lettersString.Length; i++)
+            {
+                if (vowel.Contains(trimedString[i]))
+                {
+                    tempVowel = 0;
+                    numsVowel[i] = tempVowel;
+                    tempVowel++;
+                }else numsVowel[i] = tempVowel++;
+            }
+
+            for (var j = lettersString.Length; j != 0; j--)
+            {
+                if (vowel.Contains(trimedString[j-1]))
+                {
+                    tempVowelReverse = 0;
+                    numsVowelReverse[j-1] = tempVowelReverse;
+                    tempVowelReverse++;
+                }
+                else numsVowelReverse[j-1] = tempVowelReverse++;
+            }
+
+            return $"({string.Join(",", SortedString(numsVowel, numsVowelReverse))})";
+        }
+
+        public int[] SortedString(int[] ascending, int[] descending)
+        {
+            for (var i = 0; i < ascending.Length - 1; i++)
+            {
+                if (ascending[i] > descending[i])
+                {
+                    ascending[i] = descending[i];
+                }
+            }
+
+            return ascending;
+        }
+        #endregion
 
     }
 }
