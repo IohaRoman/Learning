@@ -211,11 +211,11 @@ namespace Learning
         #region Task regarding: Palindromes - public string PalindromeSequence(Long)
         public string PalindromeSequence(long enteredValue)
         {
-            if(IsPalindrome(enteredValue) == true)
+            if(IsPalindrome(enteredValue))
             {
-                for (int value = 1; value <= enteredValue; value++)
+                for (var value = 1; value <= enteredValue; value++)
                 {
-                    long result = value;
+                    var result = Convert.ToInt64(value);
                     for (var counter = 1; ; counter++)
                     {
                         if (result == Convert.ToInt64(ReversePalindrome(result))) break;
@@ -239,12 +239,12 @@ namespace Learning
 
         public bool IsPalindrome(long intendedPalindrome)
         {
-            long remineder, sum = 0;
+            long reminder, sum = 0;
             var temp = intendedPalindrome;
             while (intendedPalindrome > 0)
             {
-                remineder = intendedPalindrome % 10;
-                sum = (sum * 10) + remineder;
+                reminder = intendedPalindrome % 10;
+                sum = (sum * 10) + reminder;
                 intendedPalindrome = intendedPalindrome / 10;
             }
             if (temp == sum) return true;

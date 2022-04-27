@@ -30,9 +30,9 @@ namespace Learning
         {
             var cost = 0.00;
 
-            foreach(var Ingredient in AddedIngredients)
+            foreach(var ingredient in AddedIngredients)
             {
-                cost += Convert.ToDouble(priceTable[Ingredient]);
+                cost += Convert.ToDouble(priceTable[ingredient]);
             }
 
             return $"£{cost:#0.00}";
@@ -40,7 +40,7 @@ namespace Learning
 
         public string GetPrice()
         {
-            var finalСost = GetCost().ToString();
+            var finalСost = GetCost();
             var finalСostValue = Convert.ToDouble(finalСost.Substring(1));
             finalСostValue += finalСostValue * 1.50;
             return $"£{finalСostValue:#0.00}";
@@ -51,13 +51,13 @@ namespace Learning
             var replaceString = new StringBuilder();
             Array.Sort(AddedIngredients);
 
-            foreach (var Ingredient in AddedIngredients)
+            foreach (var ingredient in AddedIngredients)
             {
-                if (Ingredient.EndsWith("ies"))
+                if (ingredient.EndsWith("ies"))
                 {
-                    replaceString.Append(Ingredient.Substring(0, Ingredient.Length - 3) + "y ");
+                    replaceString.Append(ingredient.Substring(0, ingredient.Length - 3) + "y ");
                 }
-                else replaceString.Append(Ingredient + " ");
+                else replaceString.Append(ingredient + " ");
             }
             if (replaceString.Length > 1)
             {
@@ -66,6 +66,5 @@ namespace Learning
 
             return replaceString.ToString();
         }
-
     }
 }
