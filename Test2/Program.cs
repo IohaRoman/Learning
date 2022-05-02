@@ -52,5 +52,9 @@ class Program
         Console.WriteLine(MakeSmoothie.GetCost());
         Console.WriteLine(MakeSmoothie.GetPrice());
         Console.WriteLine(MakeSmoothie.GetName());
+        //https://edabit.com/challenge/8n43m5c64BKfGCWr3
+        Console.WriteLine(SeventhTask.NicoCipher("mubashirhassaan", "crazy"));
+        //https://edabit.com/challenge/fY5y4WFdha4betoFz
+        Console.WriteLine(SeventhTask.HelpingAlexWithTreasure(new int[] { 2, 7, 2, 4 }));
     }
 }

@@ -1,6 +1,8 @@
 ﻿using System.Text;
 using System.Globalization;
 using System.Text.RegularExpressions;
+using System.Linq;
+using System.Collections.Generic;
 
 namespace Learning
 {
@@ -300,5 +302,80 @@ namespace Learning
         }
         #endregion
 
+        #region Task regarding: Nico Cipher - public string NicoCipher(string message, string key)
+        public string NicoCipher(string message, string key)
+        {
+            var keyLength = key.Length;
+            var stringLength = message.Length;
+            var list = new List<String>();
+            var result = new StringBuilder();
+            var temp = new String[keyLength];
+
+            for (int i = 0; i < stringLength; i += keyLength)
+            {
+                if (i + keyLength > stringLength)
+                {
+                    keyLength = stringLength - i;
+                    list.Add(message.Substring(i, keyLength));
+                }
+                list.Add(message.Substring(i, keyLength));
+            }
+
+            foreach (var subString in list)
+            {
+                var tempSubString = subString.ToCharArray();
+
+                for (var i = 0; i < tempSubString.Length; i++)
+                {
+                    var index = int.Parse(GenerateKey(key)[i].ToString()) - 1;
+
+                    temp[index] = tempSubString[i].ToString();
+                }
+                result.Append(String.Join("", temp));
+            }
+
+            return String.Join("", result);
+        }
+        public string GenerateKey(string key)
+        {
+            var createdKey = new StringBuilder();
+            var sortKeys = key.ToCharArray();
+
+            Array.Sort(sortKeys);
+            foreach (var symbolKey in key)
+            {
+                createdKey.Append(sortKeys.ToList().IndexOf(symbolKey) + 1);
+            }
+
+            return String.Join("", createdKey);
+        }
+        #endregion
+
+        public int HelpingAlexWithTreasure(int[] boxes)
+        {
+            //var boxCount = boxes.Length;
+            //var data = new int[boxCount + 1];
+            //var alexBox = new List<int>();
+            //var sindyBox = new List<int>();
+
+            //alexBox[0] = boxes[0];
+            //alexBox[1] = boxes.Max() - boxes.Min();
+
+            //for (var i = 0; i < boxCount; i++)
+            //{
+            //    if (boxCount % 2 == 0)
+            //    {
+            //        alexBox.Add(boxes[i] - boxes[i - 2]);
+            //    }
+            //    else
+            //    {
+
+            //    }
+            //}
+
+            //return alexBox.Sum(x => Convert.ToInt16(x)) - sindyBox.Sum(x => Convert.ToInt16(x));
+
+            return 0;//data[boxCount];
+        }
     }
 }
