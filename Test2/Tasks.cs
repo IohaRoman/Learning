@@ -377,5 +377,39 @@ namespace Learning
 
             return 0;//data[boxCount];
         }
+
+        #region Task regarding: Prefix Notation Evaluation - public int PrefixNotationEvaluation(string prefix)
+        public int PrefixNotationEvaluation(string prefix)
+        {
+            var operation = prefix.Split(' ');
+
+            return Calculation(operation);
+        }
+        public int Calculation(string[] calculationString)
+        {
+            var result = 0;
+
+            switch (calculationString[0])
+            {
+                case "+":
+                    result = Convert.ToInt16(calculationString[1]) + Convert.ToInt16(calculationString[2]);
+                    break;
+
+                case "-":
+                    result = Convert.ToInt16(calculationString[1]) - Convert.ToInt16(calculationString[2]);
+                    break;
+
+                case "/":
+                    result = Convert.ToInt16(calculationString[1]) / Convert.ToInt16(calculationString[2]);
+                    break;
+
+                case "*":
+                    result = Convert.ToInt16(calculationString[1]) * Convert.ToInt16(calculationString[2]);
+                    break;
+            }
+
+            return result;
+        }
+        #endregion
     }
 }

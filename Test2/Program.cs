@@ -56,5 +56,7 @@ class Program
         Console.WriteLine(SeventhTask.NicoCipher("mubashirhassaan", "crazy"));
         //https://edabit.com/challenge/fY5y4WFdha4betoFz
         Console.WriteLine(SeventhTask.HelpingAlexWithTreasure(new int[] { 2, 7, 2, 4 }));
+        //https://edabit.com/challenge/vQTiy9fvwRuLWs37W
+        Console.WriteLine(SeventhTask.PrefixNotationEvaluation("+ -10 15"));
     }
 }
