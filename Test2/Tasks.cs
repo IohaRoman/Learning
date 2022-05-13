@@ -83,6 +83,7 @@ namespace Learning
         public string TrackRobot(string[] cordinates)
             {
                 var point = new Point();
+
                 foreach (var cordinate in cordinates)
                 {
                     var subs = cordinate.Split(' ');
@@ -383,9 +384,9 @@ namespace Learning
         {
             var operation = prefix.Split(' ');
 
-            return Calculation(operation);
+            return Calculate(operation);
         }
-        public int Calculation(string[] calculationString)
+        public int Calculate(string[] calculationString)
         {
             var result = 0;
 
