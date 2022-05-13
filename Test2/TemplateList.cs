@@ -86,6 +86,7 @@ namespace Learning
 
             return $"count - {count}";
         }
+
         public string GetCoutValues(int itemToDelete)
         {
             var count = 0;

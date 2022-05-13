@@ -13,7 +13,7 @@ namespace Learning
 
         public StringNew(string inputString)
         {
-            this.inputSting = inputString;
+            inputSting = inputString;
             length = (ushort)inputString.Length;
         }
 
