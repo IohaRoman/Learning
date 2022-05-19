@@ -1,69 +1,59 @@
-﻿
-namespace Learning
+﻿namespace Learning
 {
     internal class Money
     {
+        public long GetFirstValue { get; set; }
+        public byte GetSecondValue { get; set; }
+
         public Money(long firstValue, byte secondValue)
         {
             GetFirstValue = firstValue;
             GetSecondValue = secondValue;
         }
 
-        public long GetFirstValue { get; set; }
-        public byte GetSecondValue { get; set; }
-
-        public override string ToString()
+        public string СalculateAmount(Money value)
         {
-            return string.Format("{0},{1:00}", GetFirstValue, GetSecondValue);
+            GetFirstValue += value.GetFirstValue;
+            GetSecondValue += value.GetSecondValue;
+
+            return $"{GetFirstValue},{(byte)(GetSecondValue % 100)}";
         }
 
-        public string СalculateAmount(Money a, Money b)
+        public string CalculateDifferential(Money value)
         {
-            var summRubles = a.GetFirstValue + b.GetFirstValue;
-            var summPennies = a.GetSecondValue + b.GetSecondValue;
-            var pennies = (byte)(summPennies % 100);
+            GetFirstValue -= value.GetFirstValue;
+            GetSecondValue -= value.GetSecondValue;
 
-            return $"{summRubles},{pennies}";
+            return $"{GetFirstValue},{(byte)(GetSecondValue % 100)}";
         }
 
-        public string CalculateDifferential(Money a, Money b)
+        public string CalculateMultiplication(Money value)
         {
-            var summRubles = a.GetFirstValue - b.GetFirstValue;
-            var summPennies = a.GetSecondValue - b.GetSecondValue;
-            var pennies = (byte)(summPennies % 100);
+            GetFirstValue *= value.GetFirstValue;
+            GetSecondValue *= value.GetSecondValue;
 
-            return $"{summRubles},{pennies}";
+            return $"{GetFirstValue},{(byte)(GetSecondValue % 100)}";
         }
 
-        public string CalculateMultiplication(Money a, Money b)
+        public string CalculateDivision(Money value)
         {
-            var summRubles = a.GetFirstValue * b.GetFirstValue;
-            var summPennies = a.GetSecondValue * b.GetSecondValue;
-            var pennies = (byte)(summPennies % 100);
+            GetFirstValue /= value.GetFirstValue;
+            GetSecondValue /= value.GetSecondValue;
 
-            return $"{summRubles},{pennies}";
+            return $"{GetFirstValue},{(byte)(GetSecondValue % 100)}";
         }
 
-        public string CalculateDivision(Money a, Money b)
+        public string СomparisonTwoNumbers(Money value)
         {
-            var summRubles = a.GetFirstValue / b.GetFirstValue;
-            var summPennies = a.GetSecondValue / b.GetSecondValue;
-            var pennies = (byte)(summPennies % 100);
+            GetFirstValue -= value.GetFirstValue;
+            GetSecondValue -= value.GetSecondValue;
+            var pennies = (byte)(GetSecondValue % 100);
 
-            return $"{summRubles},{pennies}";
-        }
-
-        public string СomparisonTwoNumbers(Money a, Money b)
-        {
-            var summRubles = a.GetFirstValue - b.GetFirstValue;
-            var summPennies = a.GetSecondValue - b.GetSecondValue;
-            var pennies = (byte)(summPennies % 100);
-
-            if (summRubles > 0 & pennies > 0)
+            if (GetFirstValue > 0 & pennies > 0)
             {
-                return $"{a}' '>' '{b}";
+                return $"{GetFirstValue},{GetSecondValue}' '>' '{value.GetFirstValue},{value.GetSecondValue}";
             }
-            else return $"{a}' '<' '{b}";
+            else return $"{GetFirstValue},{GetSecondValue}' '<' '{value.GetFirstValue},{value.GetSecondValue}";
         }
     }
 }

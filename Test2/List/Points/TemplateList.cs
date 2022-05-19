@@ -1,4 +1,5 @@
-﻿
+﻿using System.Collections.Generic;
+
 namespace Learning
 {
     internal class TemplateList
@@ -81,7 +82,6 @@ namespace Learning
                 {
                     break;
                 }
-
             }
 
             return $"count - {count}";
@@ -108,7 +108,6 @@ namespace Learning
                 {
                     break;
                 }
-
             }
 
             return $"count - {count}";

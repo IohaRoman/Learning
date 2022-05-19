@@ -11,7 +11,8 @@ class Program
         Tasks SixthTask = new Tasks();
         Tasks SeventhTask = new Tasks();
         Smoothie MakeSmoothie = new Smoothie(new string[] { "Raspberries", "Strawberries", "Blueberries" });
-        Fractional Compare = new Fractional(123.01, 0.123);
+        Fractional Compare = new Fractional(123.14);
+        Fractional Compare2 = new Fractional(1.10);
         TemplateList TemplateList = new TemplateList();
         Money Money = new Money(13, 50);
         Money Money2 = new Money(12, 56);
@@ -64,23 +65,24 @@ class Program
         ////https://edabit.com/challenge/vQTiy9fvwRuLWs37W
         //Console.WriteLine(SeventhTask.PrefixNotationEvaluation("+ -10 15"));
         #endregion
-        //Console.WriteLine(Compare.СalculateAmount());
-        //Console.WriteLine(Compare.CalculateDifferential());
-        //Console.WriteLine(Compare.CalculateMultiplication());
-        //Console.WriteLine(Compare.СomparisonTwoNumbers());
-        //Console.WriteLine(Money.СalculateAmount(Money, Money2).ToString());
-        //Console.WriteLine(Money.CalculateDifferential(Money, Money2).ToString());
-        //Console.WriteLine(Money.CalculateMultiplication(Money, Money2).ToString());
-        //Console.WriteLine(Money.CalculateDivision(Money, Money2).ToString());
-        //Console.WriteLine(Money.СomparisonTwoNumbers(Money, Money2).ToString());
-        Console.WriteLine(TemplateList.IsEmpty());
-        TemplateList.SetValueToStartList(1);
-        Console.WriteLine(TemplateList.IsEmpty());
-        TemplateList.SetValueToEndList(2);
-        TemplateList.SetValueToEndList(3);
-        TemplateList.SetValueToEndList(4);
-        TemplateList.SetValueToStartList(0);
-        Console.WriteLine(TemplateList.IsEmpty());
-        TemplateList.DeleteValue(3);
+        //Console.WriteLine(Compare.GetAmount(Compare, Compare2));
+        //Console.WriteLine(Compare.GetDifferential(Compare, Compare2));
+        //Console.WriteLine(Compare.GetMultiplication(Compare, Compare2));
+        //Console.WriteLine(Compare.СomparisonTwoNumbers(Compare, Compare2));
+        //Console.WriteLine(Money.СalculateAmount(Money2));
+        //Console.WriteLine(Money.CalculateDifferential(Money2));
+        //Console.WriteLine(Money.CalculateMultiplication(Money2));
+        //Console.WriteLine(Money.CalculateDivision(Money2));
+        //Console.WriteLine(Money.СomparisonTwoNumbers(Money2));
+        //Console.WriteLine(TemplateList.IsEmpty());
+        //TemplateList.SetValueToStartList(1);
+        //Console.WriteLine(TemplateList.IsEmpty());
+        //TemplateList.SetValueToEndList(2);
+        //TemplateList.SetValueToEndList(3);
+        //TemplateList.SetValueToEndList(4);
+        //TemplateList.SetValueToStartList(0);
+        //Console.WriteLine(TemplateList.IsEmpty());
+        //TemplateList.DeleteValue(3);
+        
     }
 }

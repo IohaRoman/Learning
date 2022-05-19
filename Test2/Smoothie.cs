@@ -4,10 +4,7 @@ namespace Learning
 {
     internal class Smoothie
     {
-        public Smoothie(string[] makeSmoothy)
-        {
-            AddedIngredients = makeSmoothy;
-        }
+        public string[] AddedIngredients { get; set; }
 
         public static Dictionary<string, double> priceTable = new Dictionary<string, double>
         {
@@ -20,7 +17,10 @@ namespace Learning
             ["Pineapple"] = 3.50
         };
 
-        public string[] AddedIngredients { get; set; }
+        public Smoothie(string[] makeSmoothy)
+        {
+            AddedIngredients = makeSmoothy;
+        }
 
         public string Ingredients()
         {
@@ -42,13 +42,16 @@ namespace Learning
         {
             var finalСost = GetCost();
             var finalСostValue = Convert.ToDouble(finalСost.Substring(1));
+
             finalСostValue += finalСostValue * 1.50;
+
             return $"£{finalСostValue:#0.00}";
         }
 
         public string GetName()
         {
             var replaceString = new StringBuilder();
+
             Array.Sort(AddedIngredients);
 
             foreach (var ingredient in AddedIngredients)
@@ -59,6 +62,7 @@ namespace Learning
                 }
                 else replaceString.Append(ingredient + " ");
             }
+
             if (replaceString.Length > 1)
             {
                 replaceString.Append("Fusion");

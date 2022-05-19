@@ -1,44 +1,11 @@
 ﻿using System.Text;
 
-namespace Learning
+namespace Learning.OOP_Base_string
 {
-    internal class StringNew
-    {
-        public ushort length;
-        public string inputSting;
-
-        public StringNew()
-        {
-        }
-
-        public StringNew(string inputString)
-        {
-            inputSting = inputString;
-            length = (ushort)inputString.Length;
-        }
-
-        public StringNew(char simbol)
-        {
-            inputSting = Convert.ToString(simbol);
-            length = 1;
-        }
-        public int StringLength()
-        {
-            return length;
-        }
-
-        public void Clear()
-        {
-            inputSting = "";
-            length = 0;
-        }
-
-        ~StringNew()
-        {
-        }
-    }
     internal class ComplexNumber : StringNew
     {
+        public string GetValue { get; set; }
+
         public ComplexNumber(int x)
         {
             var complex = new StringBuilder();
@@ -58,8 +25,6 @@ namespace Learning
 
             GetValue = complex.ToString();
         }
-
-        public string GetValue { get; set; }
 
         public bool IsEqual(ComplexNumber x, ComplexNumber y)
         {

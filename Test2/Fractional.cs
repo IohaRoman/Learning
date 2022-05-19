@@ -1,38 +1,49 @@
-﻿
-namespace Learning
+﻿namespace Learning
 {
     internal class Fractional
     {
-        public Fractional(double firstValue, double secondValue)
-        {
-            GetFirstValue = firstValue;
-            GetSecondValue = secondValue;
-        }
-        public double GetFirstValue { get; set; }
-        public double GetSecondValue { get; set; }
+        private double GetIntegral;
+        private double GetFractional;
 
-        public double СalculateAmount()
+        public double GetNumber { get; set; }
+
+        public Fractional(double number)
         {
-            return GetFirstValue + GetSecondValue;
+            GetIntegral = Math.Truncate(number);
+            GetFractional = number - GetIntegral;
         }
 
-        public double CalculateDifferential()
+        public string GetAmount(Fractional firstValue, Fractional secondValue)
         {
-            return GetFirstValue - GetSecondValue;
+            var resultIntegral = firstValue.GetIntegral * secondValue.GetFractional + secondValue.GetIntegral * firstValue.GetFractional;
+            var commonDenominator = firstValue.GetFractional * secondValue.GetFractional;
+
+            return $"{resultIntegral + commonDenominator}";
         }
 
-        public double CalculateMultiplication()
+        public string GetDifferential(Fractional firstValue, Fractional secondValue)
         {
-            return GetFirstValue * GetSecondValue;
+            var resultIntegral = firstValue.GetIntegral * secondValue.GetFractional - secondValue.GetIntegral * firstValue.GetFractional;
+            var commonDenominator = firstValue.GetFractional * secondValue.GetFractional;
+
+            return $"{resultIntegral + commonDenominator}";
         }
 
-        public string СomparisonTwoNumbers()
+        public string GetMultiplication(Fractional firstValue, Fractional secondValue)
         {
-            if (GetFirstValue > GetSecondValue)
+            var resultIntegral = firstValue.GetIntegral * secondValue.GetIntegral;
+            var commonDenominator = firstValue.GetFractional * secondValue.GetFractional;
+
+            return $"{resultIntegral + commonDenominator}";
+        }
+
+        public string СomparisonTwoNumbers(Fractional firstValue, Fractional secondValue)
+        {
+            if (firstValue.GetIntegral + firstValue.GetFractional > secondValue.GetIntegral + secondValue.GetFractional)
             {
-                return $"{GetFirstValue}' '>' '{GetSecondValue}";
+                return $"{firstValue.GetIntegral + firstValue.GetFractional}' '>' '{secondValue.GetIntegral + secondValue.GetFractional}";
             }
-            else return $"{GetFirstValue}' '<' '{GetSecondValue}";
+            else return $"{firstValue.GetIntegral + firstValue.GetFractional}' '<' '{secondValue.GetIntegral + secondValue.GetFractional}";
         }
     }
 }
