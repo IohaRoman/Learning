@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace Learning
+﻿namespace Learning
 {
     internal class TemplateList
     {
