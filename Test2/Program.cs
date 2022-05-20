@@ -1,4 +1,5 @@
 ﻿using Learning;
+using Learning.University;
 class Program
 {
     static void Main(string[] args)
@@ -83,6 +84,15 @@ class Program
         //TemplateList.SetValueToStartList(0);
         //Console.WriteLine(TemplateList.IsEmpty());
         //TemplateList.DeleteValue(3);
-        
+        Person person = new Person();
+        person.Greet();
+        Student Valeria = new Student();
+        Valeria.SetAge(21);
+        Valeria.Greet();
+        Valeria.ShowAge();
+        Professor Gohn = new Professor();
+        Gohn.SetAge(56);
+        Gohn.Greet();
+        Gohn.Explain();
     }
 }
