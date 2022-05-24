@@ -1,5 +1,10 @@
 ﻿using Learning;
 using Learning.University;
+using Learning.Photo_book;
+using Learning.People;
+using Learning.Interfaces;
+using Learning.Abstract_classes;
+
 class Program
 {
     static void Main(string[] args)
@@ -84,6 +89,7 @@ class Program
         //TemplateList.SetValueToStartList(0);
         //Console.WriteLine(TemplateList.IsEmpty());
         //TemplateList.DeleteValue(3);
+        //University
         Person person = new Person();
         person.Greet();
         Student Valeria = new Student();
@@ -94,5 +100,31 @@ class Program
         Gohn.SetAge(56);
         Gohn.Greet();
         Gohn.Explain();
+        //Photo book
+        PhotoBook newBook = new PhotoBook();
+        Console.WriteLine(newBook.GetNumberPages());
+        PhotoBook newBook2 = new PhotoBook(24);
+        Console.WriteLine(newBook2.GetNumberPages());
+        BigPhotoBook bigPhotoBook = new BigPhotoBook();
+        Console.WriteLine(bigPhotoBook.GetNumberPages());
+        // names and stores of people
+        Human[] persona = new Human[3];
+        persona[0] = new Teachers("Juan");
+        persona[1] = new Students("Sara");
+        persona[2] = new Students("Carlos");
+        ((Teachers)persona[0]).Explain();
+        ((Students)persona[1]).Study();
+        ((Students)persona[2]).Study();
+        //Interfaces
+        Car car = new Car(0);
+        car.fuel = 10;
+        car.Drive();
+        car.fuel = 0;
+        car.Drive();
+        //Abstract classes
+        Dog dog = new Dog();
+        dog.SetName("Wolfe");
+        dog.GetName();
+        dog.Eat();
     }
 }
